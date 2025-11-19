@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quarterly Earnings — Interactive Reveal.js</title>
+
+  <!-- Reveal.js (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/solarized.css" id="theme">
+
+  <!-- Highlight.js for code highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+
+  <style>
+    /* Small visual tweaks */
+    .reveal pre code { font-size: 0.9rem; }
+    footer.contact { position: absolute; right: 1rem; bottom: 1rem; font-size: 0.9rem; opacity: 0.85; }
+  </style>
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title slide (HTML) -->
+      <section>
+        <h1>Quarterly Earnings Report</h1>
+        <p class="lead">Interactive presentation for stakeholders</p>
+        <p><small>Prepared by: Technical Consulting — Finance</small></p>
+        <footer class="contact">Contact: 24f1000322@ds.study.iitm.ac.in</footer>
+        <aside class="notes">Introduce yourself, highlight the quarter and the objective of today: review revenue, margins and key initiatives.</aside>
+      </section>
+
+      <!-- Markdown slide -->
+      <section data-markdown>
+        <script type="text/template">
+
+## Executive Summary (Markdown)
+
+- **Revenue:** Strong sequential growth driven by product A.
+- **Net Income:** Improved margins despite higher operating expenses.
+- **Highlights:** Customer retention, new partnerships, and cost initiatives.
+
+> *Key ask:* Approval for the proposed capital allocation for next quarter.
+
+        </script>
+        <aside class="notes">Read the bullets slowly. Emphasize the ask and why approval matters for growth.</aside>
+      </section>
+
+      <!-- Slide with fragments (animated bullets) -->
+      <section>
+        <h2>Revenue Breakdown</h2>
+        <ul>
+          <li class="fragment">Product A — 45% of revenue</li>
+          <li class="fragment">Product B — 30% of revenue</li>
+          <li class="fragment">Services — 25% of revenue</li>
+        </ul>
+        <aside class="notes">Use the fragments to reveal each line and tell a quick one-liner about each product's performance.</aside>
+      </section>
+
+      <!-- Slide with code sample (syntax highlighted) -->
+      <section>
+        <h2>Example: Simple Financial Calculation (Python)</h2>
+        <pre><code class="language-python"># Compute net profit margin
+revenue = 12_500_000
+net_income = 1_875_000
+net_profit_margin = net_income / revenue
+print(f"Net profit margin: {net_profit_margin:.2%}")
+</code></pre>
+        <aside class="notes">Explain the Python snippet quickly: it's a reproducible check to compute margin from reported numbers.</aside>
+      </section>
+
+      <!-- Slide with mathematical equation -->
+      <section>
+        <h2>Financial Formula</h2>
+        <p>Return on Invested Capital (ROIC):</p>
+        <p class="fragment">\(\mathrm{ROIC} = \dfrac{\mathrm{NOPAT}}{\mathrm{Invested\;Capital}}\)</p>
+        <p class="fragment">where NOPAT = Net Operating Profit After Tax</p>
+        <aside class="notes">Point out that ROIC is useful to evaluate capital efficiency relative to peers.</aside>
+      </section>
+
+      <!-- Slide with code sample (SQL) and fragments -->
+      <section>
+        <h2>Query: Top Product Revenue (SQL)</h2>
+        <pre><code class="language-sql">-- Top 3 products by revenue for the quarter
+SELECT product_name, SUM(revenue) AS total_revenue
+FROM sales
+WHERE sale_date BETWEEN '2025-07-01' AND '2025-09-30'
+GROUP BY product_name
+ORDER BY total_revenue DESC
+LIMIT 3;
+</code></pre>
+        <p class="fragment">Use this to validate the revenue attribution in the data warehouse.</p>
+        <aside class="notes">Recommend running this in the analytics environment and cross-checking with finance ledger.</aside>
+      </section>
+
+      <!-- Closing slide with next steps -->
+      <section>
+        <h2>Next Steps</h2>
+        <ol>
+          <li class="fragment">Approve capital allocation proposal</li>
+          <li class="fragment">Greenlight customer retention program pilot</li>
+          <li class="fragment">Finalize budget reforecast</li>
+        </ol>
+        <p class="fragment">Thank you — questions?</p>
+        <footer class="contact">Email: 24f1000322@ds.study.iitm.ac.in</footer>
+        <aside class="notes">Open the floor for questions. Keep answers concise and refer back to slides for numbers.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js and plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/notes/notes.js"></script>
+  <!-- MathJax for equations -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+      markdown: { smartypants: true },
+      highlight: { // highlight.js config
+        highlightOnLoad: true
+      }
+    });
+  </script>
+</body>
+</html>
